@@ -70,7 +70,6 @@ const controller = {
           {
             id: userDB._id,
             name: userDB.name,
-            photo: userDB.photo,
             logged: userDB.logged,
           },
           process.env.KEY_JWT,
@@ -81,14 +80,13 @@ const controller = {
           role: user.role,
           lastName: user.lastName,
           logged: user.logged,
-          photo: user.photo,
           id: user._id,
         };
 
         return res.status(200).json({
           response: { token, userToken },
           success: true,
-          message: "Welcome " + user.name + " !",
+          message: "Bienvenido/a " + user.name + " !",
         });
       }
       return invalidCredentialsResponse(req, res);
@@ -114,7 +112,7 @@ const controller = {
           },
         },
         succes: true,
-        message: "Welcome " + user.name + " !",
+        message: "Bienvenido/a " + user.name + " !",
       });
     } catch (error) {
       next(error);
@@ -137,12 +135,12 @@ const controller = {
         res.status(200).json({
           response: userid,
           success: true,
-          message: "user data founded",
+          message: "Usuario encontrado",
         });
       } else {
         res.status(404).json({
           success: false,
-          message: "user not found",
+          message: "Usuario no encontrado",
         });
       }
     } catch (err) {
@@ -159,11 +157,11 @@ const controller = {
         ? res.status(200).json({
             response: user,
             success: true,
-            message: "Your profile was update succesfully.",
+            message: "Su perfil se actualizo correctamente.",
           })
         : res.status(404).json({
             success: false,
-            message: "Profile not found.",
+            message: "Perfil no actualizado.",
           });
     } catch (err) {
       next(err);
