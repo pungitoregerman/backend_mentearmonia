@@ -43,7 +43,7 @@ function invalidCredentialsResponse(req,res) {
 function verifyResponse(req,res) {
     return res.status(401).json({
         success: false,
-        message: 'Por favor, verifique su cuenta de correo electrónico e inténtelo de nuevon'
+        message: 'Por favor, verifique su cuenta de correo electrónico e inténtelo de nuevo'
     })
 }
 

@@ -12,7 +12,7 @@ const jwt = require("jsonwebtoken");
 
 const controller = {
   register: async (req, res, next) => {
-    let { name, lastName, photo, age, email, user, password } = req.body;
+    let { name, lastName, age, email, user, password } = req.body;
     let role = "user";
     let verified = false;
     let logged = false;
@@ -47,7 +47,7 @@ const controller = {
         { new: true }
       );
       if (user) {
-        return res.redirect("http://localhost:3000/");
+        return res.redirect("http://localhost:5173/");
       }
       return userNotFoundResponse(req, res);
     } catch (error) {
@@ -86,7 +86,7 @@ const controller = {
         return res.status(200).json({
           response: { token, userToken },
           success: true,
-          message: "Bienvenido/a " + user.name + " !",
+          message: "Bienvenido/a " + user.name + " " + user.lastName + " !",
         });
       }
       return invalidCredentialsResponse(req, res);
@@ -104,7 +104,6 @@ const controller = {
             id: user.id,
             name: user.name,
             role: user.role,
-            photo: user.photo,
             logged: user.logged,
             lastName: user.lastName,
             age: user.age,
@@ -112,7 +111,7 @@ const controller = {
           },
         },
         succes: true,
-        message: "Bienvenido/a " + user.name + " !",
+        message: "Bienvenido/a " + user.name + " " + user.lastName + " !",
       });
     } catch (error) {
       next(error);
@@ -161,7 +160,7 @@ const controller = {
           })
         : res.status(404).json({
             success: false,
-            message: "Perfil no actualizado.",
+            message: "No se pudo actualizar el perfil, verifica los datos de nuevo.",
           });
     } catch (err) {
       next(err);

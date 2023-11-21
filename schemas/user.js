@@ -7,10 +7,10 @@ const schema = joi.object({
             .min(3)
             .max(20)
             .messages({
-                "any.required": "El campo es required.",
-                "string.empty": "El campo es empty, porfavor, introducí un nombre.",
-                "string.min": "El campo es requerido, porfavor, introducí un nombre con mínimo de 3 letras",
-                "string.max": "El campo es requerido, porfavor, introducí un nombre con máximo de 20 letras."
+                "any.required": "El campo es requerido.",
+                "string.empty": "El campo está vacio, porfavor, introducí un nombre.",
+                "string.min": "Porfavor, introducí un nombre con mínimo de 3 letras",
+                "string.max": "Porfavor, introducí un nombre con máximo de 20 letras."
             })
             ,
 
@@ -20,10 +20,10 @@ const schema = joi.object({
             .min(3)
             .max(30)
             .messages({
-                "any.required": "El campo es required.",
-                "string.empty": "El campo es empty, porfavor, introducí un apellido.",
-                "string.min": "El campo es requerido, porfavor, introducí un apellido con mínimo de 3 letras.",
-                "string.max": "El campo es requerido, porfavor, introducí un apellido con máximo de 20 letras."
+                "any.required": "El campo es requerido.",
+                "string.empty": "El campo está vacio, porfavor, introducí un apellido.",
+                "string.min": "Porfavor, introducí un apellido con mínimo de 3 letras.",
+                "string.max": "Porfavor, introducí un apellido con máximo de 20 letras."
             }),
             age: joi
             .number()
@@ -40,7 +40,7 @@ const schema = joi.object({
             .required()
             .messages({
                 "any.required": "El campo es requerido.",
-                "string.empty": "El campo es requerido, porfavor ingrese un Email"
+                "string.empty": "El campo está vacio, porfavor ingrese un Email"
             }),
             password: joi
             .string()
@@ -48,7 +48,7 @@ const schema = joi.object({
             .min(8)
             .messages({
                 "any.required": "El campo es requerido.",
-                "string.empty": "El campo es requerido, porfavor, introduce una contraseña.",
+                "string.empty": "El campo está vacio, porfavor, introduce una contraseña.",
                 "string.min": "Introduce una contraseña de minimo 8 caracteres."
             }),
 })

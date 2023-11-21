@@ -27,9 +27,9 @@ function getTransport(client) {
     })
 }
 
-function getEmailBody(mail,code,host) { 
+function getEmailBody(mail,code) { 
     return `
-    <!DOCTYPE html>
+	<!DOCTYPE html>
 <html xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office" lang="en">
 
 <head>
@@ -144,7 +144,7 @@ function getEmailBody(mail,code,host) {
 													<table class="heading_block block-1" width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
 														<tr>
 															<td class="pad" style="text-align:center;width:100%;">
-																<h1 style="margin: 0; color: #171614; direction: ltr; font-family: Arial, Helvetica Neue, Helvetica, sans-serif; font-size: 39px; font-weight: 700; letter-spacing: normal; line-height: 120%; text-align: center; margin-top: 0; margin-bottom: 0;"><span class="tinyMce-placeholder">Bienvenido/a ${mail} </span></h1>
+																<h1 style="margin: 0; color: #171614; direction: ltr; font-family: Arial, Helvetica Neue, Helvetica, sans-serif; font-size: 39px; font-weight: 700; letter-spacing: normal; line-height: 120%; text-align: center; margin-top: 0; margin-bottom: 0;"><span class="tinyMce-placeholder">Bienvenido/a ${mail}!</span></h1>
 															</td>
 														</tr>
 													</table>
@@ -182,7 +182,7 @@ function getEmailBody(mail,code,host) {
 													<table class="button_block block-1" width="100%" border="0" cellpadding="10" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
 														<tr>
 															<td class="pad">
-																<div class="alignment" align="center"><!--[if mso]><v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="${host}api/auth/verify/${code}" style="height:44px;width:206px;v-text-anchor:middle;" arcsize="0%" strokeweight="0.75pt" strokecolor="#000000" fillcolor="#000000"><w:anchorlock/><v:textbox inset="0px,0px,0px,0px"><center style="color:#ffffff; font-family:Arial, sans-serif; font-size:16px"><![endif]--><a href="www.example.com" target="_blank" style="text-decoration:none;display:inline-block;color:#ffffff;background-color:#000000;border-radius:0px;width:auto;border-top:1px solid #000000;font-weight:700;border-right:1px solid #000000;border-bottom:1px solid #000000;border-left:1px solid #000000;padding-top:5px;padding-bottom:5px;font-family:Arial, Helvetica Neue, Helvetica, sans-serif;font-size:16px;text-align:center;mso-border-alt:none;word-break:keep-all;"><span style="padding-left:45px;padding-right:45px;font-size:16px;display:inline-block;letter-spacing:normal;"><span style="word-break: break-word; line-height: 32px;">Activar Cuenta</span></span></a><!--[if mso]></center></v:textbox></v:roundrect><![endif]--></div>
+																<div class="alignment" align="center"><!--[if mso]><v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="http://localhost:4000/api/auth/verify/${code}" style="height:44px;width:206px;v-text-anchor:middle;" arcsize="0%" strokeweight="0.75pt" strokecolor="#000000" fillcolor="#000000"><w:anchorlock/><v:textbox inset="0px,0px,0px,0px"><center style="color:#ffffff; font-family:Arial, sans-serif; font-size:16px"><![endif]--><a href="http://localhost:4000/api/auth/verify/${code}" target="_blank" style="text-decoration:none;display:inline-block;color:#ffffff;background-color:#000000;border-radius:0px;width:auto;border-top:1px solid #000000;font-weight:700;border-right:1px solid #000000;border-bottom:1px solid #000000;border-left:1px solid #000000;padding-top:5px;padding-bottom:5px;font-family:Arial, Helvetica Neue, Helvetica, sans-serif;font-size:16px;text-align:center;mso-border-alt:none;word-break:keep-all;"><span style="padding-left:45px;padding-right:45px;font-size:16px;display:inline-block;letter-spacing:normal;"><span style="word-break: break-word; line-height: 32px;">Activar Cuenta</span></span></a><!--[if mso]></center></v:textbox></v:roundrect><![endif]--></div>
 															</td>
 														</tr>
 													</table>
@@ -247,7 +247,7 @@ const accountVerificationEmail = async (mailOfNewUser,codeCalculedWithCrypto) =>
                 console.error(error)
                 return
             }
-            console.log('Email sent!')
+            console.log('Email enviado!')
         }
     )
 }

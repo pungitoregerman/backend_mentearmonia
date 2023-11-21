@@ -6,7 +6,7 @@ const schema = joi.object({
             .required()
             .min(2)
             .messages({
-                "any.required": "El campo es obligatorio",
+                "any.required": "El campo es requerido",
                 "string.empty": "El campo es obligatorio, pofravor, introduce el email.",
                 "string.min": "Porfavor, introduce un email válido.",
             }),
