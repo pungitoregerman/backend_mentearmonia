@@ -7,6 +7,7 @@ const controller = {
             let new_nota = await Notas.create({
                 usuarioId: user.userId,
                 fecha: req.body.fecha,
+                titulo: req.body.titulo,
                 nota: req.body.nota,
                 nombreUsuario: user.name,
                 rolUsuario: user.role
@@ -30,7 +31,7 @@ const controller = {
         }
       
         try {
-            let notas = await Notas.find(query).sort({ fecha: -1 });
+            let notas = await Notas.find(query).sort({ fecha: 1 });
             if (notas) {
                 res.status(200).json({
                     response: notas,
